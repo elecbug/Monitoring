@@ -24,6 +24,9 @@ namespace Monitoring
         {
             InitializeComponent();
 
+            this.StartPosition = FormStartPosition.CenterScreen;
+            this.Text = "Monitoring";
+            
             this.Computer = new Computer()
             {
                 CPUEnabled = true,
@@ -70,9 +73,11 @@ namespace Monitoring
                 view.Columns.Add("Type");
                 view.Columns.Add("Value");
 
+                view.Columns[2].TextAlign = HorizontalAlignment.Right;
+
                 for (int i = 0; i < view.Columns.Count; i++)
                 {
-                    view.Columns[i].Width = this.TabControl.Width / view.Columns.Count;
+                    view.Columns[i].Width = this.TabControl.Width / (view.Columns.Count + 1);
                 }
 
                 view.Items.Clear();
@@ -105,14 +110,14 @@ namespace Monitoring
         {
             switch (sensorType)
             {
-                case SensorType.Voltage: return "V";
-                case SensorType.Clock: return "MHz";
-                case SensorType.Temperature: return "ºC";
-                case SensorType.Load: return "%";
-                case SensorType.Power: return "W";
-                case SensorType.Data: return "GB";
-                case SensorType.SmallData: return "MB";
-                default: return "?";
+                case SensorType.Voltage: return " V";
+                case SensorType.Clock: return " MHz";
+                case SensorType.Temperature: return " ºC";
+                case SensorType.Load: return " %";
+                case SensorType.Power: return " W";
+                case SensorType.Data: return " GB";
+                case SensorType.SmallData: return " MB";
+                default: return " ??";
             }
         }
 
