@@ -45,11 +45,13 @@ namespace Monitoring
             this.ListViews = new List<ListView>();
             this.ListItems = new Dictionary<ListViewItem, ISensor>();
 
-            foreach (var unit in this.Computer.Hardware)
+            List<IHardware> hardwares = this.Computer.Hardware.ToList();
+
+            foreach (var unit in hardwares)
             {
-                if (unit.HardwareType == HardwareType.Mainboard)
+                if (unit.SubHardware.Length > 0)
                 {
-                    continue;
+                    hardwares.AddRange(unit.SubHardware.ToList());
                 }
 
                 this.TabControl.TabPages.Add(unit.Name);
