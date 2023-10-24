@@ -38,6 +38,7 @@ namespace MonitorX
                 Parent = this,
                 Visible = true,
                 Dock = DockStyle.Fill,
+                Multiline = true,
             };
 
             this.ListViews = new List<ListView>();
@@ -148,7 +149,7 @@ namespace MonitorX
                 case SensorType.Power: return " W";
                 case SensorType.Data: return " GB";
                 case SensorType.SmallData: return " MB";
-                case SensorType.Throughput: return " Kbps";
+                case SensorType.Throughput: return " bps";
                 default: return "";
             }
         }

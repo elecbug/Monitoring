@@ -68,7 +68,9 @@ namespace MonitorX
             }
             else if (OrderOfSort == SortOrder.None)
             {
-                return ObjectCompare.Compare(int.Parse(listviewX.SubItems[3].Text), int.Parse(listviewY.SubItems[3].Text));
+                return ObjectCompare
+                    .Compare(int.Parse(listviewX.SubItems[listviewX.SubItems.Count - 1].Text), 
+                    int.Parse(listviewY.SubItems[listviewY.SubItems.Count - 1].Text));
             }
             else
             {
