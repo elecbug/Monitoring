@@ -10,6 +10,7 @@ namespace MonitorX
         public Computer Computer { get; private set; }
         public List<ListView> ListViews { get; private set; }
         public Dictionary<ListViewItem, ISensor> ListItems { get; private set; }
+        public MenuStrip MenuStrip { get; private set; }
 
         public MainForm()
         {
@@ -18,6 +19,15 @@ namespace MonitorX
             this.StartPosition = FormStartPosition.CenterScreen;
             this.Text = "MonitorX";
             this.Load += MainFormLoad;
+
+            this.MenuStrip = new MenuStrip()
+            {
+                Parent = this,
+                Visible = true,
+                Dock = DockStyle.Top,
+            };
+
+            MenuSetting();
 
             this.Computer = new Computer()
             {
@@ -37,14 +47,25 @@ namespace MonitorX
             {
                 Parent = this,
                 Visible = true,
-                Dock = DockStyle.Fill,
                 Multiline = true,
+                Location = new Point(0, this.MenuStrip.Height),
+                Size = new Size(this.ClientSize.Width, this.ClientSize.Height - this.MenuStrip.Height),
+                Anchor = AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top | AnchorStyles.Bottom,
             };
 
             this.ListViews = new List<ListView>();
             this.ListItems = new Dictionary<ListViewItem, ISensor>();
 
             ListSetting();
+        }
+
+        private void MenuSetting()
+        {
+            ToolStripMenuItem item = (this.MenuStrip.Items.Add("Option") as ToolStripMenuItem)!;
+            item.DropDownItems.Add("Top most").Click += (s, e) =>
+            {
+                this.TopMost = !this.TopMost;
+            };
         }
 
         private void ListSetting()
