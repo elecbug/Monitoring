@@ -7,6 +7,12 @@
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
     <ApplicationManifest>app.manifest</ApplicationManifest>
+    <Authors>elecbug</Authors>
+    <Description>The hardware sensors monitoring tool used by OpenHW</Description>
+    <RepositoryUrl>https://github.com/elecbug/Monitoring</RepositoryUrl>
+    <RepositoryType>github</RepositoryType>
+    <PackAsTool>True</PackAsTool>
+    <FileVersion>1.23.11.01</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>

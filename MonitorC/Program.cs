@@ -68,19 +68,19 @@ namespace MonitorC
 
             Computer computer = new Computer() 
             {
-                IsBatteryEnabled = true,
-                IsControllerEnabled = true,
-                IsCpuEnabled = true,
-                IsGpuEnabled = true,
-                IsMemoryEnabled = true, 
-                IsMotherboardEnabled = true,
-                IsNetworkEnabled = true,
-                IsPsuEnabled = true,
-                IsStorageEnabled = true,
+                IsBatteryEnabled = setting!.IsBatteryEnabled,
+                IsControllerEnabled = setting!.IsControllerEnabled,
+                IsCpuEnabled = setting!.IsCpuEnabled,
+                IsGpuEnabled = setting!.IsGpuEnabled,
+                IsMemoryEnabled = setting!.IsMemoryEnabled, 
+                IsMotherboardEnabled = setting!.IsMotherboardEnabled,
+                IsNetworkEnabled = setting!.IsNetworkEnabled,
+                IsPsuEnabled = setting!.IsPsuEnabled,
+                IsStorageEnabled = setting!.IsStorageEnabled,
             };
             computer.Open();
 
-            Command command = new Command(computer);
+            Command command = new Command(computer, setting!);
 
             while (true)
             {

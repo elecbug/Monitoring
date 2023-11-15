@@ -107,24 +107,28 @@ namespace MonitorX
                 }
 
                 view.Items.Clear();
+                view.DoubleClick += ViewDoubleClick;
+                view.MultiSelect = false;
 
                 unit.Update();
 
                 int idx = 0;
                 foreach (var sensor in unit.Sensors)
                 {
-                    ListViewItem item = new ListViewItem(new string[]
-                    {
-                        sensor.Name,
-                        sensor.SensorType.ToString(),
-                        sensor.Value.ToString() + SensorUnit(sensor.SensorType),
-                        idx++.ToString(),
-                    });
+                    ListViewItem item = new ListViewItem(sensor.Name);
+                    item.SubItems.Add(sensor.SensorType.ToString());
+                    item.SubItems.Add(sensor.Value.ToString() + SensorUnit(sensor.SensorType));
+                    item.SubItems.Add(idx++.ToString());
 
                     this.ListItems.Add(item, sensor);
                     view.Items.Add(item);
                 }
             }
+        }
+
+        private void ViewDoubleClick(object? sender, EventArgs e)
+        {
+            (sender as ListView)!.SelectedItems[0].BackColor = Color.GreenYellow;
         }
 
         private void ViewColumnClick(object? sender, ColumnClickEventArgs e)
@@ -188,18 +192,27 @@ namespace MonitorX
 
                     foreach (var item in this.ListItems)
                     {
-                        try
+                        if (this.Visible == true)
                         {
-                            this.Invoke(new Action(() => item.Key.SubItems[2].Text
-                                = item.Value.Value.ToString() + SensorUnit(item.Value.SensorType)));
-                        }
-                        catch (Exception ex)
-                        {
-                            Debug.WriteLine(ex);
+                            this.Invoke(new Action(() =>
+                            {
+                                if (this.ListViews.FindIndex(x => x == item.Key.ListView) == this.TabControl.SelectedIndex)
+                                {
+                                    try
+                                    {
+                                        item.Key.SubItems[2].Text
+                                           = item.Value.Value.ToString() + SensorUnit(item.Value.SensorType);
+                                    }
+                                    catch (Exception ex)
+                                    {
+                                        Debug.WriteLine(ex);
+                                    }
+                                }
+                            }));
                         }
                     }
 
-                    await Task.Delay(1500);
+                    await Task.Delay(500);
                 }
             }).Start();
         }
