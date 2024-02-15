@@ -12,4 +12,4 @@ It has a very simple UI, so I'm sure it won't be difficult to use.
 ## APIs
 I used the following nuget package API.
 
-[LibreHardwareMonitorLib (0.9.2)](https://github.com/LibreHardwareMonitor/LibreHardwareMonitor)
+1. [LibreHardwareMonitorLib (0.9.2)](https://github.com/LibreHardwareMonitor/LibreHardwareMonitor)
