@@ -1,4 +1,4 @@
-# Welcome to Monitoring X
+# Welcome to MonitorX
 
 This program was created to verify the hardware specifications of the local host.
 
