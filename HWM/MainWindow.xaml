@@ -1,0 +1,78 @@
+﻿<Window x:Class="HWM.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HWM"
+        mc:Ignorable="d"
+        Title="Hardware Monitor" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="10"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"/>
+            <RowDefinition/>
+            <RowDefinition Height="50"/>
+            <RowDefinition/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="10"/>
+        </Grid.RowDefinitions>
+
+        <Image x:Name="Motherboard"
+               Grid.Row="1"
+               Grid.Column="1">
+        </Image>
+        
+        <Image x:Name="Cpu"
+               Grid.Row="1"
+               Grid.Column="2">
+        </Image>
+
+        <Image x:Name="Gpu"
+               Grid.Row="1"
+               Grid.Column="3">
+        </Image>
+
+        <Image x:Name="Memory"
+               Grid.Row="1"
+               Grid.Column="4">
+        </Image>
+
+        <Image x:Name="Network"
+               Grid.Row="1"
+               Grid.Column="5">
+        </Image>
+
+        <Image x:Name="Storage"
+               Grid.Row="3"
+               Grid.Column="1">
+        </Image>
+
+        <Image x:Name="Battery"
+               Grid.Row="3"
+               Grid.Column="2">
+        </Image>
+
+        <Image x:Name="Psu"
+               Grid.Row="3"
+               Grid.Column="3">
+        </Image>
+
+        <Image x:Name="Controller"
+               Grid.Row="3"
+               Grid.Column="4">
+        </Image>
+
+        <Image x:Name="Setting"
+               Grid.Row="3"
+               Grid.Column="5">
+        </Image>
+    </Grid>
+</Window>
