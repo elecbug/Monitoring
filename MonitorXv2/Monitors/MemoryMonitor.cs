@@ -17,6 +17,8 @@ namespace MonitorXv2.Monitors
             ShowInTaskbar = false;
             ClientSize = new Size(210, 40);
             TopMost = true;
+            MinimizeBox = false;
+            MaximizeBox = false;
 
             CustomProgressBar load = new CustomProgressBar()
             {
