@@ -15,6 +15,7 @@ namespace HWM
 {
     public partial class MainWindow : Window
     {
+
         public Computer Computer { get; private set; } = new Computer()
         {
             IsMotherboardEnabled = true,
